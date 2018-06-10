@@ -1,0 +1,206 @@
+<project name="TrackingApi" basedir="." default="all">
+
+	<!-- Project settings -->
+	<property name="project.distname" value="trApi" />
+	<property environment="env" />
+	<property name="app_root" location="." />
+	<property name="metadata" location="./WEB-INF/"/>
+
+	<!-- Local paths-->
+	<!--A-->
+	<property name="webinf.dir" location="${basedir}/WEB-INF/" />
+	<property name="libs.dir" location="${webinf.dir}/lib" />
+	<property name="class.dir" location="${webinf.dir}/classes" />
+	<!--B-->
+	<property name="src.dir" location="${basedir}/src" />	
+	<property name="test.dir" location="${basedir}/test" />	
+	<property name="build.dir" location="${basedir}/build" />
+	<!--C-->
+	
+	<property name="deploy.dir" value="${basedir}/deploy" />
+
+	<!-- classpath in manifest
+	<property name="pp-libraries" value="asm-3.1.jar commons-beanutils-1.8.0.jar 
+		commons-collections-3.2.1.jar
+		commons-io-2.4.jar 
+		commons-lang-2.4.jar
+		commons-logging-1.0.1.jar 
+		ezmorph-1.0.6.jar 
+		jersey-core-1.8.jar
+		jersey-server-1.8.jar 
+		json-lib-2.3-jdk15.jar 
+		xom-1.2.8.jar 
+		org.springframework.asm-3.1.2.jar	
+		org.springframework.aspects-3.1.2.jar	
+		org.springframework.beans-3.1.2.jar
+		org.springframework.context-3.1.2.jar
+		org.springframework.context.support-3.1.2.jar
+		org.springframework.core-3.1.2.jar
+		org.springframework.web-3.1.2.jar
+		org.springframework.expression-3.1.2.jar		
+		org.springframework.transaction-3.1.2.jar
+		org.springframework.web.servlet-3.1.2.jar 
+		spring-security-core-3.0.5.jar
+		spring-security-web-3.0.5.jar
+		spring-security-config-3.0.5.jar
+		upload.jar
+		j2ee-1.4.jar
+		junit-4.6.jar
+		mongo-2.8.0.jar		
+		jboss-logging-log4j.jar
+		jxl.jar
+		json-org.jar
+		jackson-xc-1.1.2.jar
+		jackson-mapper-lgpl-1.1.2.jar
+		jackson-mapper-asl-1.1.2.jar
+		jackson-jaxrs-1.1.2.jar
+		jackson-core-lgpl-1.1.2.jar
+		jackson-core-asl-1.1.2.jar
+		log4j.jar
+		servlet-api.jar
+		xstream-1.3.1.jar
+		spring-data-mongodb-1.1.0.M1.jar
+		spring-data-commons-core-1.3.0.RELEASE.jar
+		amozonupload.jar
+		xpp3-1.1.4c.jar httpmime-4.3.3.jar  httpcore-4.3.2.jar httpclient-cache-4.3.3.jar  httpclient-4.3.3.jar  framework_S3.jar  fluent-hc-4.3.3.jar    commons-logging.jar  commons-codec-1.6.jar
+		"
+		/>-->
+			<path id="classpath">
+				<fileset dir="${webinf.dir}/lib" includes="**/*.jar"/>
+			</path>	
+	
+	<!-- classpath  
+	<path id="compile.classpath">
+			<pathelement path="${webinf.dir}/lib/asm-3.1.jar" />
+			<pathelement path="${webinf.dir}/lib/commons-beanutils-1.8.0.jar" />
+			<pathelement path="${webinf.dir}/lib/commons-collections-3.2.1.jar" />
+			<pathelement path="${webinf.dir}/lib/commons-io-2.4.jar" />
+			<pathelement path="${webinf.dir}/lib/commons-lang-2.4.jar" />
+			<pathelement path="${webinf.dir}/lib/commons-logging-1.0.1.jar" />
+			<pathelement path="${webinf.dir}/lib/ezmorph-1.0.6.jar" />
+			<pathelement path="${webinf.dir}/lib/json-lib-2.3-jdk15.jar" />
+			<pathelement path="${webinf.dir}/lib/xom-1.2.8.jar" />
+			<pathelement path="${webinf.dir}/lib/gc-api.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.asm-3.1.2.jar" />			
+			<pathelement path="${webinf.dir}/lib/org.springframework.aspects-3.1.2.jar" />	
+			<pathelement path="${webinf.dir}/lib/org.springframework.beans-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.context-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.context.support-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.core-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.web-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.expression-3.1.2.jar" />		
+			<pathelement path="${webinf.dir}/lib/org.springframework.transaction-3.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/org.springframework.web.servlet-3.1.2.jar" />		
+			<pathelement path="${webinf.dir}/lib/junit-4.6.jar" />
+			<pathelement path="${webinf.dir}/lib/spring-security-core-3.0.5.jar" />
+			<pathelement path="${webinf.dir}/lib/spring-security-config-3.0.5.jar" />
+			<pathelement path="${webinf.dir}/lib/spring-security-web-3.0.5.jar" />
+			<pathelement path="${webinf.dir}/lib/upload.jar" />
+		    <pathelement path="${webinf.dir}/lib/amozonupload.jar" />
+			<pathelement path="${webinf.dir}/lib/mongo-2.8.0.jar" />			
+			<pathelement path="D:/jboss-5.1.0.GA/common/lib/log4j.jar" />
+			<pathelement path="D:/jboss-5.1.0.GA/common/lib/servlet-api.jar" />
+		    <pathelement path="D:/jboss-5.1.0.GA/common/lib/mail.jar" />
+			<pathelement path="${webinf.dir}/lib/jxl.jar" />
+			<pathelement path="${webinf.dir}/lib/json-org.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-xc-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-mapper-lgpl-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-mapper-asl-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-jaxrs-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-core-lgpl-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/jackson-core-asl-1.1.2.jar" />
+			<pathelement path="${webinf.dir}/lib/xstream-1.3.1.jar" />
+		   	<pathelement path="${webinf.dir}/lib/spring-data-mongodb-1.1.0.M1.jar"/>
+		    <pathelement path="${webinf.dir}/lib/spring-data-commons-core-1.3.0.RELEASE.jar"/>
+		    <pathelement path="${webinf.dir}/lib/xpp3-1.1.4c.jar"/>
+			<pathelement path="${webinf.dir}/lib/httpmime-4.3.3.jar"/>
+			<pathelement path="${webinf.dir}/lib/httpcore-4.3.2.jar"/>
+			<pathelement path="${webinf.dir}/lib/httpclient-cache-4.3.3.jar"/>
+			<pathelement path="${webinf.dir}/lib/httpclient-4.3.3.jar"/>
+			<pathelement path="${webinf.dir}/lib/framework_S3.jar"/>
+			<pathelement path="${webinf.dir}/lib/fluent-hc-4.3.3.jar"/>
+			<pathelement path="${webinf.dir}/lib/commons-logging.jar"/>
+			<pathelement path="${webinf.dir}/lib/commons-codec-1.6.jar"/>
+		
+		
+		    <pathelement path ="D:/jboss-5.1.0.GA/server/default/deploy/jbossweb.sar/jsf-libs/jsf-api.jar"/>
+			<pathelement path="${class.dir}" />
+		
+	</path>-->
+	
+	 <!--All -->
+	 <target name="all" depends="ear">
+	     <echo>Finished ${project.distname}  Build - ${time}</echo>
+	</target>
+
+	<!-- Deploy Ear-->
+	<target name="ear" depends="deploy">
+	</target>
+
+	<!-- Deploy War-->
+	<target name="deploy" depends="build">
+		<echo>Creating ${project.distname}  War</echo>
+		<delete file="${deploy.dir}/${project.distname}.war" />
+		<mkdir dir="${deploy.dir}" />
+		<copy todir="${webinf.dir}/classes/resources">
+			<fileset dir="${src.dir}/resources" includes="**/*.xml"/>
+		   <fileset dir="${src.dir}/resources" includes="**/*.properties"/>
+		</copy>
+		 <echo>${webinf.dir}</echo>
+		<war warfile="${deploy.dir}/${project.distname}.war" webxml="${webinf.dir}/web.xml">
+			
+			<classes dir="${webinf.dir}/classes">
+			</classes>
+		<webinf dir="WEB-INF/">
+				<include name="web.xml" />	
+				<include name="log4j.xml" />	
+				<include name="mvc-dispatcher-servlet.xml" />	
+				<include name="spring-integration.xml" />
+				<include name="pages/**" />
+				<include name="${webinf.dir}/classes/resources/**" />
+
+			</webinf>
+			<lib dir="${libs.dir}" />
+			
+		</war>
+	</target>
+
+	<!-- Build entire project  target name="build" depends="clean,prepare,compile,source-jar -->
+	<target name="build" depends="clean,prepare,compile">
+		<echo>Building ${project.distname} Project</echo>
+	</target>
+
+	<!-- Remove classes directory for clean build -->
+	<target name="clean" description="Prepare for clean build">
+		<echo>Cleaning ${project.distname} ....</echo>
+		<delete dir="${webinf.dir}/classes" />
+		<mkdir dir="${webinf.dir}/classes" />
+	</target>
+
+	<!-- Update timestamp on files -->
+	<target name="prepare">
+		<echo>Updating ${project.distname} Time and Date</echo>
+		<tstamp>
+	    <format property="time" pattern="MM/dd/yyyy hh:mm aa"  unit="hour"/>
+		</tstamp>
+	</target>
+
+	<!-- Normal build of application -->
+	<target name="compile" depends="prepare">
+		<echo>Compiling ${project.distname} Java Files</echo>
+		<javac destdir="${class.dir}" optimize="false" deprecation="false" failonerror="true" >
+			<classpath refid="classpath" />
+			<src path="${src.dir}"/>		
+			<src path="${src.dir}"/>			
+		</javac>
+	</target>
+	
+	
+	<target name="source-jar" depends="compile">
+		<echo>Source ${project.distname} File Backup As Jar</echo>
+		<delete file="${deploy.dir}/**.jar" />
+		<jar destfile="${deploy.dir}/${project.distname}.jar" basedir="${basedir}">
+		<include name="**/**.class"/>
+		</jar>
+	</target>
+</project> 

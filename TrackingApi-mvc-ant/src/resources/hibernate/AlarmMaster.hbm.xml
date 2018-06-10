@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 5, 2016 1:36:59 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.track.api.model.AlarmMaster" table="ALARM_MASTER">
+        <id name="vehicleId" type="java.lang.String">
+            <column name="VEHICLEID" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="sendTime" type="java.util.Date">
+            <column name="SENDTIME" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="imeiNumber" type="java.lang.String">
+            <column name="IMEINUMBER" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" />
+        </property>
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>

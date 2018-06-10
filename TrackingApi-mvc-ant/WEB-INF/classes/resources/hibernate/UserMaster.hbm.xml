@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 5, 2016 1:36:59 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.track.api.model.UserMaster" table="USER_MASTER">
+        <id name="sno" type="java.lang.Integer">
+            <column name="USER_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="fullName" type="java.lang.String">
+            <column name="FULLNAME" />
+        </property>
+        <property name="distributor" type="java.lang.String">
+            <column name="DISTRIBUTOR" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String"  >
+            <column name="PASSWORD" />
+        </property>
+        <property name="emailAddress" type="java.lang.String">
+            <column name="EMAILADDRESS" />
+        </property>
+        <property name="contactNumber" type="java.lang.String">
+            <column name="CONTACTNUMBER" />
+        </property>
+        <property name="alterContactNumber" type="java.lang.String">
+            <column name="ALTERCONTACTNUMBER" />
+        </property>
+        <property name="role" type="java.lang.String">
+            <column name="ROLE" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="createdDate" type="java.util.Date">
+            <column name="CREATEDDATE" />
+        </property>
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="modifiedDate" type="java.util.Date">
+            <column name="MODIFIEDDATE" />
+        </property>
+        <property name="modifiedBy" type="java.lang.String">
+            <column name="MODIFIEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>

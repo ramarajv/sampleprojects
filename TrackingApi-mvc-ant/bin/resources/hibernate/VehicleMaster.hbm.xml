@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 5, 2016 1:36:59 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.api.model.VehicleMaster" table="VEHICLEMASTER">
+        <id name="targetId" type="java.lang.String">
+            <column name="TARGETID" />
+            <generator class="assigned" />
+        </id>
+       
+        <property name="customerId" type="java.lang.String">
+            <column name="CUSTOMERID" />
+        </property>
+        <property name="imeiNumber" type="java.lang.String">
+            <column name="IMEINUMBER" />
+        </property>
+        <property name="targetName" type="java.lang.String">
+            <column name="TARGETNAME" />
+        </property>
+        <property name="driverName" type="java.lang.String">
+            <column name="DRIVERNAME" />
+        </property>
+        <property name="contactNumber" type="java.lang.String">
+            <column name="CONTACTNUMBER" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="belongTo" type="java.lang.String">
+            <column name="BELONGTO" />
+        </property>
+        <property name="simCardNumber" type="java.lang.String">
+            <column name="SIMCARDNUMBER" />
+        </property>
+        <property name="speed" type="java.lang.String">
+            <column name="SPEED" />
+        </property>
+        <property name="position" type="java.lang.String">
+            <column name="POSITION" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="ACCOUNT" />
+        </property>
+        <property name="licensePlateNumber" type="java.lang.String">
+            <column name="LICENSEPLATENUMBER" />
+        </property>
+        <property name="overSpeed" type="java.lang.String">
+            <column name="OVERSPEED" />
+        </property>
+        <property name="contact" type="java.lang.String">
+            <column name="CONTACT" />
+        </property>
+        <property name="tel_Mobile" type="java.lang.String">
+            <column name="TEL_MOBILE" />
+        </property>
+        <property name="vehicleIcon" type="java.lang.String">
+            <column name="VEHICLEICON" />
+        </property>
+        <property name="earlyWarningOffline" type="java.lang.String">
+            <column name="EARLYWARNINGOFFLINE" />
+        </property>
+        <property name="overSpeedAlarm" type="java.lang.String">
+            <column name="OVERSPEEDALARM" />
+        </property>
+        <property name="dueOn" type="java.util.Date">
+            <column name="DUEON" />
+        </property>
+        <property name="platformDue" type="java.util.Date">
+            <column name="PLATFORMDUE" />
+        </property>
+        <property name="importOn" type="java.util.Date">
+            <column name="IMPORTON" />
+        </property>
+        <property name="lastUpdate" type="java.util.Date">
+            <column name="LASTUPDATE" />
+        </property>
+        <property name="enabledOn" type="java.util.Date">
+            <column name="ENABLEDON" />
+        </property>
+        <property name="activatedOn" type="java.util.Date">
+            <column name="ACTIVATEDON" />
+        </property>
+        <property name="remarks" type="java.lang.String">
+            <column name="REMARKS" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="createdOn" type="java.util.Date">
+            <column name="CREATEDON" />
+        </property>
+        <property name="createdBy" type="java.lang.String">
+            <column name="CREATEDBY" />
+        </property>
+        <property name="modifiedOn" type="java.util.Date">
+            <column name="MODIFIEDON" />
+        </property>
+        <property name="modifiedBy" type="java.lang.String">
+            <column name="MODIFIEDBY" />
+        </property>
+    </class>
+</hibernate-mapping>
